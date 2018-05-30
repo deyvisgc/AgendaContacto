@@ -1,15 +1,20 @@
 package com.exameple.deyvis.agenda.Vistas;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.exameple.deyvis.agenda.DAO.DaoContacto;
@@ -22,6 +27,7 @@ public class ContactoActivity extends AppCompatActivity {
     EditText etNombreE, etTelefonoE, etEmailE;
     DaoContacto daocontacto;
     Contacto contacto;
+    ImageView call;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,11 @@ public class ContactoActivity extends AppCompatActivity {
         etTelefonoE = (EditText) findViewById(R.id.etTelefonoE);
         etEmailE = (EditText) findViewById(R.id.etEmailE);
         daocontacto = new DaoContacto(this);
+
+
+
+
+
 
         if (bundle != null) {
             contacto = new Contacto(bundle.get("email").toString(),
@@ -85,4 +96,5 @@ public class ContactoActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }
